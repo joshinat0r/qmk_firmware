@@ -31,8 +31,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL_PD2
 
 #define LEADER_TIMEOUT 450
+
+#define TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
-#define TAPPING_TERM 175
+#define TAPPING_TERM 500
+#define PERMISSIVE_HOLD
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS

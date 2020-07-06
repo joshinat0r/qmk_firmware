@@ -31,8 +31,8 @@ enum {
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for ;, twice for -
-    [TD_SCLN_MIN] = ACTION_TAP_DANCE_DOUBLE(KC_SCOLON, KC_MINUS)
+  // Tap once for ;, twice for -
+  [TD_SCLN_MIN] = ACTION_TAP_DANCE_DOUBLE(KC_SCOLON, KC_MINUS)
 };
 
 
@@ -41,14 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT( \
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SLSH, \
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LEAD, \
-  KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, KC_RCTL, \
+  KC_LCTRL, LGUI_T(KC_A), LALT_T(KC_S),LCTL_T(KC_D),    LSFT_T(KC_F),    KC_G, KC_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    RALT_T(KC_L),    RGUI_T(KC_QUOT), KC_RCTL, \
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,TO(_GAME),T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT, \
                           KC_INSERT, KC_LGUI,    KC_BSPC, KC_DEL,   LT(_NUM, KC_ENT),   LT(_NAV, KC_SPC),   KC_LALT, KC_APP \
 ),
 [_NAV] = LAYOUT( \
   _______, KC_DEL ,KC_INSERT,KC_PAUSE,_______, _______,                  _______, _______, _______, _______, _______, _______,\
   _______, KC_GRV , KC_DLR , KC_EXLM, KC_LCBR, KC_RCBR,                   KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_MS_WH_UP  , _______, \
-  _______, KC_DQUO, KC_HASH, KC_AMPR, KC_LPRN, KC_RPRN,                   KC_LEFT, KC_DOWN,  KC_UP ,KC_RIGHT, KC_MS_WH_LEFT, KC_MS_WH_RIGHT, \
+  _______, KC_DQUO, KC_HASH, KC_AMPR, KC_LPRN, KC_RPRN,                   KC_LEFT, KC_DOWN,  KC_UP ,KC_RIGHT, _______, _______, \
   _______, KC_MINS, KC_UNDS, KC_PIPE, KC_LBRC, KC_RBRC, _______, _______, LCTL(KC_Z), LCTL(KC_C), LCTL(KC_V), LALT(KC_LEFT), KC_MS_WH_DOWN, _______, \
                              _______, _______, KC_LSFT, _______, _______, _______, _______, _______\
 ),

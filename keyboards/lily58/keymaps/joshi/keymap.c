@@ -1,5 +1,11 @@
 #include QMK_KEYBOARD_H
 
+#define SENDSTRING_MM1 ""
+#define SENDSTRING_MM2 ""
+#define SENDSTRING_MM3 ""
+
+#include "secrets.h"
+
 #ifdef PROTOCOL_LUFA
   #include "lufa.h"
   #include "split_util.h"
@@ -41,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT( \
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SLSH, \
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LEAD, \
-  KC_LCTRL, LGUI_T(KC_A), LALT_T(KC_S),LCTL_T(KC_D),    LSFT_T(KC_F),    KC_G, KC_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    RALT_T(KC_L),    RGUI_T(KC_QUOT), KC_RCTL, \
+  KC_LCTRL, LALT_T(KC_A),   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    RGUI_T(KC_QUOT), KC_RCTL, \
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,TO(_GAME),T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT, \
                           KC_INSERT, KC_LGUI,    KC_BSPC, KC_DEL,   LT(_NUM, KC_ENT),   LT(_NAV, KC_SPC),   KC_LALT, KC_APP \
 ),
@@ -418,6 +424,22 @@ void matrix_scan_user(void) {
          unregister_code(KC_LALT);
          did_leader_succeed = true;
       }
+
+      SEQ_TWO_KEYS(KC_U, KC_I) {
+         SEND_STRING(SENDSTRING_MM1);
+         did_leader_succeed = true;
+      }
+
+      SEQ_TWO_KEYS(KC_J, KC_K) {
+         SEND_STRING(SENDSTRING_MM2);
+         did_leader_succeed = true;
+      }
+
+      SEQ_TWO_KEYS(KC_M, KC_COMM) {
+         SEND_STRING(SENDSTRING_MM3);
+         did_leader_succeed = true;
+      }
+
 
     leader_end();
   }

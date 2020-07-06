@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
-#define TAPPING_TERM 500
+#define TAPPING_TERM 100
 #define PERMISSIVE_HOLD
 
 #undef RGBLED_NUM

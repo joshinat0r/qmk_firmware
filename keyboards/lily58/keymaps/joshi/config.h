@@ -45,6 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
 
+#define COMBO_COUNT 3
+#define COMBO_TERM 100
+
 // Underglow
 /*
 #undef RGBLED_NUM

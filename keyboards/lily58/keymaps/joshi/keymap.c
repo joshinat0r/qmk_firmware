@@ -41,6 +41,24 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_SCLN_MIN] = ACTION_TAP_DANCE_DOUBLE(KC_SCOLON, KC_MINUS)
 };
 
+// Combo definitions
+enum combos {
+  ONETWO_SEVEN,
+  TWOTHREE_EIGHT,
+  THREEFOUR_NINE
+};
+
+const uint16_t PROGMEM onetwo_combo[] = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM twothree_combo[] = {KC_2, KC_3, COMBO_END};
+const uint16_t PROGMEM threefour_combo[] = {KC_3, KC_4, COMBO_END};
+
+
+combo_t key_combos[COMBO_COUNT] = {
+  [ONETWO_SEVEN] = COMBO(onetwo_combo, KC_7),
+  [TWOTHREE_EIGHT] = COMBO(twothree_combo, KC_8),
+  [THREEFOUR_NINE] = COMBO(threefour_combo, KC_9)
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -66,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              _______, _______, _______, _______, KC_DOT , KC_COMM,KC_P0, _______\
 ),
 [_GAME] = LAYOUT( \
-TO(_QWERTY), _______, _______, _______, _______, _______,                   KC_0   , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,\
+TO(_QWERTY), _______, _______, _______, _______, _______,                   KC_ESC , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,\
     _______, KC_U   , KC_I   , KC_O   , KC_P   , _______,                   KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , \
     _______, KC_J   , KC_K   , KC_L   , KC_N   , _______,                   KC_M   , KC_A   , KC_S   , KC_D   , KC_F   , KC_G, \
     _______, _______, _______, _______, KC_F1  , KC_F2  , KC_F3  , KC_ESC , KC_H   , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B, \

@@ -1,3 +1,5 @@
+// systemctl stop ModemManager.service
+
 #include QMK_KEYBOARD_H
 
 #define SENDSTRING_MM1 ""
@@ -32,7 +34,7 @@ enum custom_keycodes {
 #define _GAME 3
 
 enum {
-  TD_SCLN_MIN,
+  TD_SCLN_MIN
 };
 
 // Tap Dance definitions
@@ -43,21 +45,35 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 // Combo definitions
 enum combos {
-  ONETWO_SEVEN,
-  TWOTHREE_EIGHT,
-  THREEFOUR_NINE
+  // ONETWO_SEVEN,
+  // TWOTHREE_EIGHT,
+  // THREEFOUR_NINE,
+  JK_MIDDLE,
+  // FOURFIVE_F12,
+  // SIXSEVEN_F2
 };
 
-const uint16_t PROGMEM onetwo_combo[] = {KC_1, KC_2, COMBO_END};
-const uint16_t PROGMEM twothree_combo[] = {KC_2, KC_3, COMBO_END};
-const uint16_t PROGMEM threefour_combo[] = {KC_3, KC_4, COMBO_END};
+// const uint16_t PROGMEM onetwo_combo[] = {KC_1, KC_2, COMBO_END};
+// const uint16_t PROGMEM twothree_combo[] = {KC_2, KC_3, COMBO_END};
+// const uint16_t PROGMEM threefour_combo[] = {KC_3, KC_4, COMBO_END};
+const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
+// const uint16_t PROGMEM fourfive_combo[] = {KC_4, KC_5, COMBO_END};
+// const uint16_t PROGMEM sixseven_combo[] = {KC_6, KC_7, COMBO_END};
 
 
 combo_t key_combos[COMBO_COUNT] = {
-  [ONETWO_SEVEN] = COMBO(onetwo_combo, KC_7),
-  [TWOTHREE_EIGHT] = COMBO(twothree_combo, KC_8),
-  [THREEFOUR_NINE] = COMBO(threefour_combo, KC_9)
+  // [ONETWO_SEVEN] = COMBO(onetwo_combo, KC_7),
+  // [TWOTHREE_EIGHT] = COMBO(twothree_combo, KC_8),
+  // [THREEFOUR_NINE] = COMBO(threefour_combo, KC_9),
+  [JK_MIDDLE] = COMBO(jk_combo, KC_MS_BTN3),
+  // [FOURFIVE_F12] = COMBO(fourfive_combo, KC_F12),
+  // [SIXSEVEN_F2] = COMBO(sixseven_combo, KC_F2)
 };
+
+// Lily Work
+// KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,KC_APP ,T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT,
+// Lily Home
+// KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,TO(_GAME),T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT,
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -66,14 +82,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SLSH, \
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LEAD, \
   KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    RGUI_T(KC_QUOT), KC_RCTL, \
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,TO(_GAME),T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT, \
-                          KC_INSERT, KC_LGUI,    KC_BSPC, KC_DEL,   LT(_NUM, KC_ENT),   LT(_NAV, KC_SPC),   KC_LALT, KC_APP \
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,KC_APP ,T_ENC_MOD, KC_N,    KC_M,    KC_COMM, KC_DOT,  TD(TD_SCLN_MIN),  KC_RSFT, \
+                          KC_UNDS, KC_LGUI,    KC_BSPC, KC_DEL,   LT(_NUM, KC_ENT),   LT(_NAV, KC_SPC),   KC_LALT, KC_MINUS \
 ),
 [_NAV] = LAYOUT( \
-  _______, KC_DEL ,KC_INSERT,KC_PAUSE,_______, _______,                  _______, _______, _______, _______, _______, _______,\
-  _______, KC_GRV , KC_DLR , KC_EXLM, KC_LCBR, KC_RCBR,                   KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_MS_WH_UP  , _______, \
-  _______, KC_DQUO, KC_HASH, KC_AMPR, KC_LPRN, KC_RPRN,                   KC_LEFT, KC_DOWN,  KC_UP ,KC_RIGHT, _______, _______, \
-  _______, KC_MINS, KC_UNDS, KC_PIPE, KC_LBRC, KC_RBRC, _______, _______, LCTL(KC_Z), LCTL(KC_C), LCTL(KC_V), LALT(KC_LEFT), KC_MS_WH_DOWN, _______, \
+  _______, KC_DEL ,KC_INSERT,KC_PAUSE,KC_CALC, KC_MYCM,                  _______, _______, _______, _______, _______, _______,\
+  _______, KC_GRV , KC_DLR , KC_EXLM, KC_LCBR, KC_RCBR,                   KC_HOME, KC_PGDN, KC_PGUP,  KC_END, _______ , _______, \
+  _______, KC_DQUO, KC_HASH, KC_AMPR, KC_LPRN, KC_RPRN,                   KC_LEFT, KC_DOWN,  KC_UP ,KC_RIGHT, KC_MS_WH_UP, KC_MS_WH_LEFT, \
+  _______, KC_MINS, KC_UNDS, KC_PIPE, KC_LBRC, KC_RBRC, _______, _______, LCTL(KC_Z), LCTL(KC_C), LCTL(KC_V), LALT(KC_LEFT), KC_MS_WH_DOWN, KC_MS_WH_RIGHT, \
                              _______, _______, KC_LSFT, _______, _______, _______, _______, _______\
 ),
 [_NUM] = LAYOUT( \
@@ -121,9 +137,9 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 // When you add source files to SRC in rules.mk, you can use functions.
 const char *read_layer_state(void);
 const char *read_logo(void);
-void set_keylog(uint16_t keycode, keyrecord_t *record);
-const char *read_keylog(void);
-const char *read_keylogs(void);
+// void set_keylog(uint16_t keycode, keyrecord_t *record);
+// const char *read_keylog(void);
+// const char *read_keylogs(void);
 
 // const char *read_mode_icon(bool swap);
 // const char *read_host_led_state(void);
@@ -134,8 +150,8 @@ void oled_task_user(void) {
   if (is_keyboard_master()) {
     // If you want to change the display of OLED, you need to change here
     oled_write_ln(read_layer_state(), false);
-    oled_write_ln(read_keylog(), false);
-    oled_write_ln(read_keylogs(), false);
+    // oled_write_ln(read_keylog(), false);
+    // oled_write_ln(read_keylogs(), false);
     //oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
     //oled_write_ln(read_host_led_state(), false);
     //oled_write_ln(read_timelog(), false);
@@ -148,7 +164,7 @@ void oled_task_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
 #ifdef OLED_DRIVER_ENABLE
-    set_keylog(keycode, record);
+    // set_keylog(keycode, record);
 #endif
     // set_timelog();
   }

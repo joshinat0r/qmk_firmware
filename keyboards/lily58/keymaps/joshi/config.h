@@ -45,19 +45,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
 
-#define COMBO_COUNT 3
+#define COMBO_COUNT 1
 #define COMBO_TERM 100
 
 // Underglow
-/*
-#undef RGBLED_NUM
-#define RGBLED_NUM 14    // Number of LEDs
-#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_SLEEP
-*/
+// #undef RGBLED_NUM
+// #define RGBLED_NUM 14    // Number of LEDs
+// #define RGBLIGHT_ANIMATIONS
+// #define RGBLIGHT_SLEEP
 
-#define ENCODERS_PAD_A { F4 }
-#define ENCODERS_PAD_B { F5 }
-#define ENCODERS_PAD_A_RIGHT { F4 }
-#define ENCODERS_PAD_B_RIGHT { F5 }
-#define ENCODER_RESOLUTION 3
+
+// #define ENCODERS_PAD_A { F4 }
+// #define ENCODERS_PAD_B { F5 }
+// #define ENCODERS_PAD_A_RIGHT { F4 }
+// #define ENCODERS_PAD_B_RIGHT { F5 }
+// #define ENCODER_RESOLUTION 3
